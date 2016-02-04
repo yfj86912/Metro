@@ -18,5 +18,6 @@
 #define bgs @"/BGS_Service.aspx"
 #define gen @"/General_Service.aspx"
 #define pub @"/Public_Service.aspx"
+#define Fil @"/File_Service.aspx"
 
 #endif

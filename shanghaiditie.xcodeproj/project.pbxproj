@@ -164,6 +164,11 @@
 		9CE1C2911B271700002B1CFA /* iconR.png in Resources */ = {isa = PBXBuildFile; fileRef = 9CE1C28F1B271700002B1CFA /* iconR.png */; };
 		9CE5D0F31B722FE700ABAC58 /* VideoWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CE5D0F21B722FE700ABAC58 /* VideoWebViewController.m */; };
 		9CE7672D1B25CA7900971876 /* MyYudingMeetingDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CE7672C1B25CA7900971876 /* MyYudingMeetingDetailViewController.m */; };
+		B70623C11C59FE4D00084AFA /* libxml2.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = B70623C01C59FE4D00084AFA /* libxml2.tbd */; };
+		B70623C31C59FE5700084AFA /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = B70623C21C59FE5700084AFA /* libz.tbd */; };
+		B70623C81C5A09DA00084AFA /* FileSeachViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B70623C71C5A09DA00084AFA /* FileSeachViewController.m */; };
+		B71ACADA1C61AB05002141CC /* MetroFileTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B71ACAD91C61AB05002141CC /* MetroFileTableViewCell.m */; };
+		B71ACAE01C633FF7002141CC /* ShowPDFViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B71ACADF1C633FF7002141CC /* ShowPDFViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -429,6 +434,14 @@
 		9CE5D0F21B722FE700ABAC58 /* VideoWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideoWebViewController.m; sourceTree = "<group>"; };
 		9CE7672B1B25CA7900971876 /* MyYudingMeetingDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyYudingMeetingDetailViewController.h; sourceTree = "<group>"; };
 		9CE7672C1B25CA7900971876 /* MyYudingMeetingDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyYudingMeetingDetailViewController.m; sourceTree = "<group>"; };
+		B70623C01C59FE4D00084AFA /* libxml2.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libxml2.tbd; path = usr/lib/libxml2.tbd; sourceTree = SDKROOT; };
+		B70623C21C59FE5700084AFA /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
+		B70623C61C5A09DA00084AFA /* FileSeachViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FileSeachViewController.h; sourceTree = "<group>"; };
+		B70623C71C5A09DA00084AFA /* FileSeachViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FileSeachViewController.m; sourceTree = "<group>"; };
+		B71ACAD81C61AB05002141CC /* MetroFileTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MetroFileTableViewCell.h; sourceTree = "<group>"; };
+		B71ACAD91C61AB05002141CC /* MetroFileTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MetroFileTableViewCell.m; sourceTree = "<group>"; };
+		B71ACADE1C633FF7002141CC /* ShowPDFViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShowPDFViewController.h; sourceTree = "<group>"; };
+		B71ACADF1C633FF7002141CC /* ShowPDFViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShowPDFViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -436,6 +449,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B70623C31C59FE5700084AFA /* libz.tbd in Frameworks */,
+				B70623C11C59FE4D00084AFA /* libxml2.tbd in Frameworks */,
 				578F41B31B18386E00CFF475 /* CoreTelephony.framework in Frameworks */,
 				576FB97B1AD4C43F00C1CD42 /* libxml2.dylib in Frameworks */,
 				576FB9791AD4C43600C1CD42 /* libz.dylib in Frameworks */,
@@ -461,6 +476,8 @@
 		57512D491ACC06F300B7ACA0 = {
 			isa = PBXGroup;
 			children = (
+				B70623C21C59FE5700084AFA /* libz.tbd */,
+				B70623C01C59FE4D00084AFA /* libxml2.tbd */,
 				578F41B21B18386E00CFF475 /* CoreTelephony.framework */,
 				576FB97A1AD4C43F00C1CD42 /* libxml2.dylib */,
 				576FB9781AD4C43600C1CD42 /* libz.dylib */,
@@ -821,6 +838,12 @@
 				5791E7D51B213C71005BB602 /* MeetingAddDetailViewController.m */,
 				5791E7D71B214566005BB602 /* AddDetailTableViewCell.h */,
 				5791E7D81B214566005BB602 /* AddDetailTableViewCell.m */,
+				B70623C61C5A09DA00084AFA /* FileSeachViewController.h */,
+				B70623C71C5A09DA00084AFA /* FileSeachViewController.m */,
+				B71ACADE1C633FF7002141CC /* ShowPDFViewController.h */,
+				B71ACADF1C633FF7002141CC /* ShowPDFViewController.m */,
+				B71ACAD81C61AB05002141CC /* MetroFileTableViewCell.h */,
+				B71ACAD91C61AB05002141CC /* MetroFileTableViewCell.m */,
 			);
 			name = Function;
 			sourceTree = "<group>";
@@ -1100,14 +1123,17 @@
 				576FB93C1AD3D7B600C1CD42 /* UIProgressView+AFNetworking.m in Sources */,
 				578F41771B13035300CFF475 /* FeedBackViewController.m in Sources */,
 				57D3885F1B1D840C002CB0D1 /* MyYudingMeetingViewController.m in Sources */,
+				B71ACADA1C61AB05002141CC /* MetroFileTableViewCell.m in Sources */,
 				57A043D21B1FE27B001E51BE /* MeetingAddressViewController.m in Sources */,
 				576FB9361AD3D7B600C1CD42 /* AFURLSessionManager.m in Sources */,
 				57AAA9C21B26E91A0066BBD2 /* MeetingReserveStepTwoViewController.m in Sources */,
 				576FB9561AD3FDD300C1CD42 /* ASIAuthenticationDialog.m in Sources */,
+				B71ACAE01C633FF7002141CC /* ShowPDFViewController.m in Sources */,
 				576FB9341AD3D7B600C1CD42 /* AFURLRequestSerialization.m in Sources */,
 				57AAA9CE1B2820BC0066BBD2 /* RBCustomDatePickerView.m in Sources */,
 				57879D641B044DA900D75806 /* BindEmailViewController.m in Sources */,
 				57512D5B1ACC06F300B7ACA0 /* AppDelegate.m in Sources */,
+				B70623C81C5A09DA00084AFA /* FileSeachViewController.m in Sources */,
 				576FB93D1AD3D7B600C1CD42 /* UIRefreshControl+AFNetworking.m in Sources */,
 				576FB9711AD4C33B00C1CD42 /* NSString+SBJSON.m in Sources */,
 				576FB9351AD3D7B600C1CD42 /* AFURLResponseSerialization.m in Sources */,
@@ -1290,6 +1316,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer: Li Feng (TKJJ6F6DHY)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Li Feng (TKJJ6F6DHY)";
+				ENABLE_BITCODE = NO;
 				GCC_PREFIX_HEADER = "$(PROJECT_DIR)/shanghaiditie/PrefixHeader.pch";
 				INFOPLIST_FILE = shanghaiditie/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
@@ -1300,7 +1327,7 @@
 					"$(PROJECT_DIR)/shanghaiditie/LibBPush",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "1f03a3e9-6451-4981-8df3-ff703cb32ee3";
+				PROVISIONING_PROFILE = "67732387-75b1-4af6-93b7-7360ae2517bd";
 				VALID_ARCHS = "arm64 armv7s armv7";
 			};
 			name = Debug;
@@ -1312,6 +1339,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer: Li Feng (TKJJ6F6DHY)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Li Feng (TKJJ6F6DHY)";
+				ENABLE_BITCODE = NO;
 				GCC_PREFIX_HEADER = "$(PROJECT_DIR)/shanghaiditie/PrefixHeader.pch";
 				INFOPLIST_FILE = shanghaiditie/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
@@ -1322,7 +1350,7 @@
 					"$(PROJECT_DIR)/shanghaiditie/LibBPush",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "1f03a3e9-6451-4981-8df3-ff703cb32ee3";
+				PROVISIONING_PROFILE = "67732387-75b1-4af6-93b7-7360ae2517bd";
 				VALID_ARCHS = "arm64 armv7s armv7";
 			};
 			name = Release;

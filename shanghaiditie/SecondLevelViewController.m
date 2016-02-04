@@ -21,6 +21,7 @@
 #import "MeetingReserveViewController.h"
 #import "FileListViewController.h"
 #import "VideoWebViewController.h"
+#import "FileSeachViewController.h"
 
 #define tophight 64
 
@@ -188,6 +189,12 @@
         case 42:
             [self actionForVideo:(int)btn.tag];
             break;
+        case 43:
+        case 44:
+        case 45:
+        case 46:
+            [self actionForFile:(int)btn.tag];
+            break;
         default:
             break;
     }
@@ -250,6 +257,14 @@
     VideoWebViewController * videoWebViewController = [storyboard instantiateViewControllerWithIdentifier:@"videoWebViewController"];
     videoWebViewController.witchWebview = tagNumber;
     [self.navigationController pushViewController:videoWebViewController animated:YES];
+    
+}
+
+- (void)actionForFile:(int)tagNumber {
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle: nil];
+    FileSeachViewController * fileSeachViewController = [storyboard instantiateViewControllerWithIdentifier:@"fileSeachViewController"];
+    fileSeachViewController.witchFile = tagNumber;
+    [self.navigationController pushViewController:fileSeachViewController animated:YES];
     
 }
 
