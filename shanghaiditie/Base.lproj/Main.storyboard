@@ -1060,18 +1060,36 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aEl-pG-Clo">
+                                <rect key="frame" x="534" y="28" width="46" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="46" id="AMz-V4-xPi"/>
+                                    <constraint firstAttribute="height" constant="30" id="W91-9N-Ow5"/>
+                                </constraints>
+                                <state key="normal" title="下载">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="actionForDownload:" destination="2b5-6q-MQK" eventType="touchUpInside" id="a6k-Me-8Rn"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="aEl-pG-Clo" firstAttribute="trailing" secondItem="GvI-mf-a35" secondAttribute="trailingMargin" id="9Wu-o2-uEm"/>
                             <constraint firstItem="fsl-Rw-udm" firstAttribute="top" secondItem="jNa-49-5xo" secondAttribute="bottom" constant="9" id="Dto-Lk-aMJ"/>
                             <constraint firstItem="fsl-Rw-udm" firstAttribute="leading" secondItem="GvI-mf-a35" secondAttribute="leadingMargin" constant="-4" id="Wz3-h5-wSd"/>
                             <constraint firstItem="Ibz-Up-BHu" firstAttribute="centerX" secondItem="GvI-mf-a35" secondAttribute="centerX" id="bGe-Mc-iQV"/>
+                            <constraint firstItem="aEl-pG-Clo" firstAttribute="top" secondItem="jNa-49-5xo" secondAttribute="bottom" constant="8" id="dh8-IV-DNc"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Qal-Ot-30h" secondAttribute="trailing" constant="-20" id="flf-hr-kvd"/>
                             <constraint firstItem="Qal-Ot-30h" firstAttribute="top" secondItem="GvI-mf-a35" secondAttribute="topMargin" id="k5X-3y-Qva"/>
                             <constraint firstItem="Ibz-Up-BHu" firstAttribute="top" secondItem="jNa-49-5xo" secondAttribute="bottom" constant="11" id="ojz-kG-UXa"/>
                             <constraint firstItem="Qal-Ot-30h" firstAttribute="leading" secondItem="GvI-mf-a35" secondAttribute="leadingMargin" constant="-20" id="ygx-r4-gW1"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="btnForDownload" destination="aEl-pG-Clo" id="FKl-dx-3FX"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1cE-kL-doG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

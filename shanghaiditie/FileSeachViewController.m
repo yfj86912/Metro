@@ -19,6 +19,9 @@
 {
     NSMutableArray * arrayFortoptab;
     NSMutableArray * arrayForFile;
+    NSMutableArray * arrayForComplete;
+    UIView * viewForComplete;
+    UITableView * tableViewForComplete;
     
     UIView * viewForKind;
     int searchTypeId;
@@ -61,6 +64,7 @@
     // Do any additional setup after loading the view.
     arrayForFile = [[NSMutableArray alloc]init];
     arrayFortoptab = [[NSMutableArray alloc]init];
+    arrayForComplete = [[NSMutableArray alloc]init];
     pageIndex = 0;
     searchTypeId = 0;
     
@@ -116,9 +120,9 @@
 {
     CALayer * layer = [imageviewback layer];
     layer.borderColor = [[UIColor grayColor] CGColor];
-    layer.borderWidth = 1.0f;
+    layer.borderWidth = 0.5f;
     
-    viewForKind = [[UIView alloc]initWithFrame:CGRectMake(10, CGRectGetMaxY(btnForkind.frame), 46, 90)];
+    viewForKind = [[UIView alloc]initWithFrame:CGRectMake(8, CGRectGetMaxY(btnForkind.frame), 46, 90)];
     [viewForKind setBackgroundColor:[UIColor whiteColor]];
     [self.view addSubview:viewForKind];
     
@@ -154,6 +158,41 @@
     viewForKind.alpha = 0;
 }
 
+- (void) addCompleteView
+{
+    int heightForView;
+    if (arrayForComplete.count>5) {
+        heightForView = 150;
+    }else{
+        heightForView = (int)arrayForComplete.count*30;
+    }
+    if (!viewForComplete) {
+        
+        viewForComplete = [[UIView alloc]initWithFrame:CGRectMake(0, CGRectGetMaxY(textFieldForFile.frame), [UIScreen mainScreen].bounds.size.width, heightForView)];
+        [viewForComplete setBackgroundColor:[UIColor whiteColor]];
+        [self.view addSubview:viewForComplete];
+        
+        CALayer * layer = [viewForComplete layer];
+        layer.borderColor = [[UIColor grayColor] CGColor];
+        layer.borderWidth = 0.5f;
+        
+        tableViewForComplete = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, viewForComplete.frame.size.width, viewForComplete.frame.size.height)];
+        tableViewForComplete.dataSource = self;
+        tableViewForComplete.delegate = self;
+        tableViewForComplete.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
+        [viewForComplete addSubview:tableViewForComplete];
+    }else
+    {
+        viewForComplete.alpha = 1;
+        viewForComplete.frame = CGRectMake(0, CGRectGetMaxY(textFieldForFile.frame), [UIScreen mainScreen].bounds.size.width, heightForView);
+        tableViewForComplete.frame = CGRectMake(0, 0, viewForComplete.frame.size.width, viewForComplete.frame.size.height);
+        [tableViewForComplete reloadData];
+    }
+    
+    
+}
+
+
 -(IBAction)chooseKind:(id)sender
 {
     UIButton * btn = (UIButton *)sender;
@@ -175,6 +214,8 @@
     btnForkind.selected = NO;
     viewForKind.alpha = 0;
 }
+
+
 
 ////获取分类
 - (void)getFileType
@@ -297,9 +338,11 @@
     if(_request.tag == 1801)
     {
         if([[result objectForKey:@"State"] isEqualToString:@"Sucess"]){
+            [arrayFortoptab removeAllObjects];
             [arrayFortoptab addObjectsFromArray:[[result objectForKey:@"Message"] objectForKey:@"rows"]];
             [self setscrollViewBtn];
             [MBProgressHUD hideHUDForView:self.view];
+            [arrayForFile removeAllObjects];
             [self getFile:1 pageSize:10];
         }else{
             [MBProgressHUD hideHUDForView:self.view];
@@ -307,7 +350,12 @@
         }
     }else if(_request.tag == 1802){
         if([[result objectForKey:@"State"] isEqualToString:@"Sucess"]){
-            textFieldForFile.text = [[[[result objectForKey:@"Message"] objectForKey:@"rows"] objectAtIndex:0] objectForKey:@"FileName"];
+            if ([[[result objectForKey:@"Message"] objectForKey:@"count"] intValue]==0) {
+                return;
+            }
+            [arrayForComplete removeAllObjects];
+            [arrayForComplete addObjectsFromArray:[[result objectForKey:@"Message"] objectForKey:@"rows"]];
+            [self addCompleteView];
         }
         
     }else if(_request.tag == 1803){
@@ -386,17 +434,41 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 60;
+    if (tableViewForComplete == tableView) {
+        return 30;
+    }else{
+        return 60;
+    }
+    
 }
 
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
+    if (tableViewForComplete == tableView) {
+        return arrayForComplete.count;
+    }
     return  arrayForFile.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    if (tableViewForComplete == tableView) {
+        NSDictionary * dic = [arrayForComplete objectAtIndex:indexPath.row];
+        
+        static NSString *CellIdentifier = @"TableViewCell";
+        UITableViewCell *cell = (UITableViewCell*)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+        
+        if (cell == nil) {
+            cell=[[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+//            cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        }
+        ///cell恢复成最初状态
+        cell.textLabel.text = [dic objectForKey:@"FileName"];
+        
+        return cell;
+    }
+    
     NSDictionary * dic = [arrayForFile objectAtIndex:indexPath.row];
     
     static NSString *CellIdentifier = @"metroFileTableViewCell";
@@ -417,9 +489,16 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSDictionary * dic = [arrayForFile objectAtIndex:indexPath.row];
-    NSString * fileurl = [NSString stringWithFormat:@"%@/%@", server_address,[dic objectForKey:@"FileUrl"]];
-    [self showwebview:fileurl];
+    if (tableViewForComplete == tableView) {
+        NSDictionary * dic = [arrayForComplete objectAtIndex:indexPath.row];
+        textFieldForFile.text = [dic objectForKey:@"FileName"];
+        viewForComplete.alpha = 0;
+    }else{
+        NSDictionary * dic = [arrayForFile objectAtIndex:indexPath.row];
+        NSString * fileurl = [NSString stringWithFormat:@"%@",[dic objectForKey:@"FileUrl"]];
+        NSString * fileId = [dic objectForKey:@"Id"];
+        [self showwebview:fileurl fileId:fileId];
+    }
 }
 
 ////添加加载等待页面
@@ -512,11 +591,12 @@
     [self.navigationController popViewControllerAnimated:YES];
 }
 
--(void)showwebview:(NSString *)strForUrl
+-(void)showwebview:(NSString *)strForUrl fileId:(NSString *)strForFileId
 {
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle: nil];
     ShowPDFViewController * showPDFViewController = [storyboard instantiateViewControllerWithIdentifier:@"showPDFViewController"];
     showPDFViewController.url = strForUrl;
+    showPDFViewController.fileId = strForFileId;
     [self.navigationController pushViewController:showPDFViewController animated:YES];
 }
 

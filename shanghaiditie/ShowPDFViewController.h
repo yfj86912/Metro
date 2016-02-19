@@ -14,6 +14,7 @@
 }
 
 @property (nonatomic, strong) NSString * url;
+@property (nonatomic, strong) NSString * fileId;
 - (IBAction)comeback:(id)sender;
 
 @end

@@ -9,8 +9,8 @@
 #ifndef shanghaiditie_NetworkHttpRequest_h
 #define shanghaiditie_NetworkHttpRequest_h
 
-//#define server_address @"http://112.124.121.240:9876"    ///发布
-#define server_address @"https://112.124.121.240:6788"      ///测试
+#define server_address @"http://112.124.121.240:9876"    ///发布
+//#define server_address @"https://112.124.121.240:6788"      ///测试
 #define login @"/LoginService.aspx"
 #define index @"/Index_Service.aspx"
 #define kyfw @"/KYFW_Service.aspx"
