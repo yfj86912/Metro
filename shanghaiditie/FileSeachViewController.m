@@ -104,7 +104,7 @@
 //textfieldDelegate--
 - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
 {
-    if (textField.text.length>=1 && ![string isEqualToString:@""]) {
+    if (![string isEqualToString:@""]) {
         [self fileNameComplete];
     }
     return YES;
@@ -324,6 +324,7 @@
 ////搜索文件信息
 -(IBAction)actionForSearchFile:(id)sender
 {
+    viewForComplete.alpha = 0;
     pageIndex = 1;
     [arrayForFile removeAllObjects];
     [self getFile:pageIndex pageSize:10];
@@ -340,10 +341,14 @@
         if([[result objectForKey:@"State"] isEqualToString:@"Sucess"]){
             [arrayFortoptab removeAllObjects];
             [arrayFortoptab addObjectsFromArray:[[result objectForKey:@"Message"] objectForKey:@"rows"]];
-            [self setscrollViewBtn];
+            if(arrayFortoptab.count>0){
+                [self setscrollViewBtn];
+                [arrayForFile removeAllObjects];
+                [MBProgressHUD hideHUDForView:self.view];
+                [self getFile:1 pageSize:10];
+            }else
             [MBProgressHUD hideHUDForView:self.view];
-            [arrayForFile removeAllObjects];
-            [self getFile:1 pageSize:10];
+            
         }else{
             [MBProgressHUD hideHUDForView:self.view];
             [MBProgressHUD showError:[result objectForKey:@"Message"]];
