@@ -88,6 +88,8 @@
     [refreshFooterView1 addSubview:refreshImage1];
     [refreshFooterView1 addSubview:refreshSpinner1];
     [tableViewForFile addSubview:refreshFooterView1];
+    
+    [textFieldForFile addTarget:self action:@selector(textFieldChanged:) forControlEvents:UIControlEventEditingChanged];
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -96,17 +98,28 @@
     [self getFileType];
 }
 
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+//    [textFieldForFile removeObserver:self forKeyPath:textFieldForFile.text];
+}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
 
+-(void)textFieldChanged:(NSString *)string
+{
+    [self fileNameComplete];
+}
+
 //textfieldDelegate--
 - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
 {
-    if (![string isEqualToString:@""]) {
-        [self fileNameComplete];
-    }
+//    if (![string isEqualToString:@""]) {
+//        [self fileNameComplete];
+//    }
     return YES;
 }
 

@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "shanghaiditie/FileSeachViewController.m"
-            timestampString = "477972779.867197"
+            timestampString = "478059683.859438"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "505"
-            endingLineNumber = "505"
+            startingLineNumber = "518"
+            endingLineNumber = "518"
             landmarkName = "-tableView:didSelectRowAtIndexPath:"
             landmarkType = "5">
          </BreakpointContent>
@@ -26,11 +26,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "shanghaiditie/FileSeachViewController.m"
-            timestampString = "477543658.646169"
+            timestampString = "478059683.859438"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "169"
-            endingLineNumber = "169"
+            startingLineNumber = "182"
+            endingLineNumber = "182"
             landmarkName = "-addCompleteView"
             landmarkType = "5">
          </BreakpointContent>
@@ -42,11 +42,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "shanghaiditie/FileSeachViewController.m"
-            timestampString = "477544816.474651"
+            timestampString = "478059683.859438"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "310"
-            endingLineNumber = "310"
+            startingLineNumber = "323"
+            endingLineNumber = "323"
             landmarkName = "-getFile:pageSize:"
             landmarkType = "5">
          </BreakpointContent>
@@ -74,28 +74,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "shanghaiditie/FileSeachViewController.m"
-            timestampString = "477972779.867197"
+            timestampString = "478080409.140114"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "357"
-            endingLineNumber = "357"
-            landmarkName = "-requestFinished:"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "shanghaiditie/FileSeachViewController.m"
-            timestampString = "477971063.782275"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "271"
-            endingLineNumber = "271"
-            landmarkName = "-fileNameComplete"
+            startingLineNumber = "114"
+            endingLineNumber = "114"
+            landmarkName = "-textFieldChanged:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
