@@ -508,7 +508,6 @@
 ///首页图标显示未读消息数量接口
 -(void)getMessageCount
 {
-    [MBProgressHUD showMessage:nil toView:self.view];
     NSUserDefaults *d = [NSUserDefaults standardUserDefaults];
     NSMutableArray * arrForTypeModel = [[NSMutableArray alloc]init];
     for (int i =0; i<arrayForFoundtion.count; i++) {
@@ -612,11 +611,8 @@
             [arrayForMessageCount removeAllObjects];
             [arrayForMessageCount addObjectsFromArray:[result objectForKey:@"Message"]];
             [self showNewsNumber];
-            [MBProgressHUD hideHUDForView:self.view];
-        }
-        else{
-            [MBProgressHUD hideHUDForView:self.view];
-            [MBProgressHUD showError:[result objectForKey:@"Message"]];
+        }else{
+            
         }
     }
     

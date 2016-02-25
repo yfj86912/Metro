@@ -15,6 +15,9 @@
 #import "Mycrypt.h"
 
 @interface NewsDetailViewController ()
+{
+    ASIHTTPRequest *request;
+}
 
 @end
 
@@ -43,6 +46,14 @@
     
 }
 
+-(void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    [request requestFinished];
+    request.delegate = nil;
+    request = nil;
+}
+
 ////新闻阅读
 - (void)getNews
 {
@@ -54,7 +65,7 @@
     
     NSString *baseURL = [NSString stringWithFormat:@"%@%@", server_address, gen];
     NSURL *url1=[NSURL URLWithString:baseURL];
-    ASIHTTPRequest *request=[ASIHTTPRequest requestWithURL:url1];
+    request=[ASIHTTPRequest requestWithURL:url1];
     [request setValidatesSecureCertificate:NO];
     NSMutableDictionary *dict = [[NSMutableDictionary alloc] init];
     [dict setObject:@"application/json" forKey:@"Content-type"];
